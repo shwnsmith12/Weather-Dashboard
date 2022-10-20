@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--head-->
+<!--Head containing links to external and internal stylesheets-->
 <head>
     <title>5-Day Weather Forecast</title>
     <meta charset="UTF-8">
@@ -9,8 +9,6 @@
     <script src="https://kit.fontawesome.com/acb2ed40d9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
-<body>
     <!--Displays the "5-Day Weather Forecast Header with some weather icons"-->
     <header class="jumbotron">
         <h1 class ="display-3">
@@ -19,3 +17,53 @@
             <i class="fa-solid fa-temperature-three-quarters"></i>
         </h1>
     </header>
+    <!---Container I will move to the side that prompts user to select a city, it contains a search icon button and a placeholder that states "Paris, France"-->
+    <div class="container">
+        <div class="col-sm-3 bg-light container" id="sidebar">
+            <h6 id="citySelector">Select a City</h6>
+            <div class="col-sm-10 input-grouo">
+            <!--make placeholder lighter in grade, and disappear on click (CSS)-->
+                <input class="form-control" id="text" placeholder="Paris, France"> 
+                    <div class="input-group-append">
+                        <button class="searchBtn" type="button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section for list of locally saved city names to easily traverse back to
+    with a clear button function at the bottom-->
+    <div class="saved-city cards">
+        <ul class="city-list">
+            <section>
+                <button id="city1"></button>
+                <button id="city2"></button>
+                <button id="city3"></button>
+                <button id="city4"></button>
+                <button id="city5"></button>
+            </section>
+                <button type="button" id="clrBtn">Clear Searches</button>
+        </ul>
+    </div>
+
+    <div class="col-sm-8">
+        <div class="container">
+            <div class="card card-body current-view" id="current-view">
+                <div class="card-title" id="cityinfos">
+                    <h2 id="cityName">City Name:</h2>
+                        <p id="currentDate"></p>
+                            <img id="weathericon">
+                    <h6 class="card-subtitle mb-2">Temperature: <span id="cityTemp"></span></h6>
+                        <hr>
+                    <h6 class="card-subtitle mb-2">Humidity: <span id="cityHum"></span></h6>
+                        <hr>
+                    <h6 class="card-subtitle mb-2">Wind Speed: <span id="cityWS"></span></h6>
+                        <hr>
+                    <h6 class="card-subtitle mb-2">UV Index: <span id="cityUV"></span></h6>
+                        <hr>
+                </div>
+            </div>
+        </div>
+    </div>

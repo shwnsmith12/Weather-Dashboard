@@ -1,0 +1,30 @@
+* {
+    max-width: 100vw;
+}
+
+.jumbotron {
+    text-align: center;
+    color:#2eadf7; 
+    font-family: 'Courier New', Courier, monospace;
+}
+  
+section button {
+width: 18%;
+height: 50px;
+border-radius: 10px;
+}
+  
+section button:hover {
+    background-color:rgb(61, 28, 110);
+    color: white;
+}
+
+#clrBtn {
+    background-color: white;
+    color: black
+}
+
+#clrBtn:hover {
+    background-color: black;
+    color: white;
+}
