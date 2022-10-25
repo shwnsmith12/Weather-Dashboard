@@ -1,129 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Head containing links to external and internal stylesheets-->
 <head>
-    <title>5-Day Weather Forecast</title>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/acb2ed40d9.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/scripts/script.js" defer></script>
+    <title>Weather App</title>
 </head>
-    <!--Displays the "5-Day Weather Forecast Header with some weather icons"-->
-    <header class="jumbotron">
-        <h1>
-            <i class="fa-regular fa-sun"></i>
-                5-Day Weather Forecast
-            <i class="fa-solid fa-temperature-three-quarters"></i>
-        </h1>
-    </header>
+<body>
 
-    <div class="container" id="citySelctor">
-        <div class="sidebar">
-            <h6 id="cSText">Select a City</h6>
-            <div class="col-sm-10 input-group">
-            <!-- form with "Paris, France" as a placeholder -->
-                <input class="form-control" id="text" placeholder="Paris, France"> 
-                    <div class="input-group-append">
-                        <button class="searchBtn" type="button">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <button type="button" id="clrBtn">Clear Searches</button>
-                    </div>
+        <div class="card">
+            <div class="search">
+                <input type="text" class="search-bar" placeholder="Select a City">
+            <button>
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path>
+                </svg>
+            </button>
             </div>
-        </div>
+        <div class="weather loading">
+            <h2 class="city">Weather in Denver</h2>
+            <h1 class="temp">51°F</h1>
+                <div class="flex">
+                    <div class="description">Cloudy</div>
+                    <img src="https://openweathermap.org/img/wn/01d.png" alt="" class="icon">
+                </div>
+                    <div class="humidity">Humidity: 55%</div>
+                    <div class="wind">Wind Speed: 13mph</div>   
+                </div>
+        </div>        
     
-    <br>
-    <!-- Section for list of locally saved city names to easily traverse back to
-    with a clear button function at the bottom-->
-    <div class="saved-city cards">
-        <ul class="city-list">
-            <section>
-                <button id="city1"></button>
-                <button id="city2"></button>
-                <button id="city3"></button>
-                <button id="city4"></button>
-                <button id="city5"></button>
-            </section>
-               
-        </ul>
-    </div>
-    </div>
-
-    <div class>
-        <div class="container" id="currentCity">
-            <div class="card card-body current-view" id="current-view">
-                <div class="card-title" id="cityInfos">
-                    <h2 id="cityName">City Name:</h2>
-                        <p id="currentDate"></p>
-                            <img id="weathericon">
-                    <h6 class="card-subtitle mb-2">Temperature: <span id="cityTemp"></span></h6>
-                        <hr>
-                    <h6 class="card-subtitle mb-2">Humidity: <span id="cityHum"></span></h6>
-                        <hr>
-                    <h6 class="card-subtitle mb-2">Wind Speed: <span id="cityWS"></span></h6>
-                        <hr>
-                    <h6 class="card-subtitle mb-2">UV Index: <span id="cityUV"></span></h6>
-                        <hr>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br>
-
-    <div id="fiveDayForecast">
-        <h5>Forecast For Next 5 Days</h5>
-        <div class="row">
-            <div class="col-sm">
-                <div class="card 5cards">
-                    <div class="card-title" id="day1"></div>
-                    <img class="icons" id="icon1">
-                    <p id="date1">Date: </p>
-                    <p id="high1">High: </p>
-                    <p id="low1">Low: </p>
-                    <p id="hum1">Humidity: </p>
-                </div>
-            </div>
-                <div class="col-sm">
-                    <div class="card 5cards">
-                        <div class="card-title" id="day2"></div>
-                        <img class="icons" id="icon2">
-                        <p id="date2">Date: </p>
-                        <p id="high2">High: </p>
-                        <p id="low2">Low: </p>
-                        <p id="hum2">Humidity: </p>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card 5cards">
-                        <div class="card-title" id="day3"></div>
-                        <img class="icons" id="icon3">
-                        <p id="date3">Date: </p>
-                        <p id="high3">High: </p>
-                        <p id="low3">Low: </p>
-                        <p id="hum3">Humidity: </p>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card 5cards">
-                        <div class="card-title" id="day4"></div>
-                        <img class="icons" id="icon4">
-                        <p id="date4">Date: </p>
-                        <p id="high4">High: </p>
-                        <p id="low4">Low: </p>
-                        <p id="hum4">Humidity: </p>
-                    </div>
-                </div>
-                 <div class="col-sm">
-                    <div class="card 5cards">
-                        <div class="card-title" id="day5"></div>
-                        <img class="icons" id="icon5">
-                        <p id="date5">Date: </p>
-                        <p id="high5">High: </p>
-                        <p id="low5">Low: </p>
-                        <p id="hum5">Humidity: </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+</body>
+</html>
